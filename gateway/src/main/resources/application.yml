@@ -1,0 +1,53 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-gateway
+
+
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: 'http://localhost:8081'
+            allow-credentials: true
+            allowedHeaders: '*'
+            allowedMethods:
+              - PUT
+              - GET
+              - POST
+              - DELETE
+              - OPTIONS
+      routes:
+        - id: product-service
+          #         predicates =  product-service로 요청이 들어오면
+          predicates:
+            - Path=/product-service/**
+          #         filter = 앞 1개 (/product-service) 를 제거하고 product-service로 요청을 보낸다
+          filters:
+            - StripPrefix=1
+          #          아래 uri는 eureka에 등록된 서비스명, 각 서비스마다 spring.application.name으로 등록되어있음
+          uri: lb://product-service
+
+        - id: member-service
+          predicates:
+            - Path=/member-service/**
+          filters:
+            - StripPrefix=1
+          uri: lb://member-service
+
+        - id: order-service
+          predicates:
+            - Path=/order-service/**
+          filters:
+            - StripPrefix=1
+          uri: lb://order-service
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

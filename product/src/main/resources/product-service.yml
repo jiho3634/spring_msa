@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: product-service
+  config:
+    import: "optional:configserver:http://localhost:8888"
+    fail-fast: true
+  cloud:
+    config:
+      uri: http://localhost:8888
+    bus:
+      enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh, refresh, health, info

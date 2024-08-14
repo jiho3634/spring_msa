@@ -1,0 +1,34 @@
+server:
+  port: 8888
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jiho3634/msa_configs.git
+          clone-on-start: true
+          default-label: main
+#         private repo 에 접근할 수 있는 token 생성 후 입력
+#         token name
+          username:
+#         token key
+          password:
+    bus:
+      enabled: true
+
+#      bus 를 통해 실시간 config 변경을 위해 rabbitmq 를 bus 내부적으로 사용
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+#       config 서버가 제공해주는 endpoint. 해당 메서드를 통해 실시간 config 갱신
+        include: bus-refresh, bus-env, refresh, env, health, info
+  endpoint:
+    health:
+      show-details: always

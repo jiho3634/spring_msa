@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
+        </processorPath>
+        <module name="product.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.beyond.eureka" target="11" />
+      <module name="com.beyond.eureka.main" target="11" />
+      <module name="com.beyond.eureka.test" target="11" />
+      <module name="com.beyond.ordersystem" target="11" />
+      <module name="com.beyond.ordersystem.main" target="11" />
+      <module name="com.beyond.ordersystem.test" target="11" />
+      <module name="eureka.ordersystem" target="11" />
+      <module name="eureka.ordersystem.main" target="11" />
+      <module name="eureka.ordersystem.test" target="11" />
+      <module name="gateway.ordersystem" target="11" />
+      <module name="gateway.ordersystem.main" target="11" />
+      <module name="gateway.ordersystem.test" target="11" />
+      <module name="ordersystem" target="11" />
+      <module name="ordersystem.main" target="11" />
+      <module name="ordersystem.test" target="11" />
+      <module name="product.ordersystem" target="11" />
+      <module name="product.ordersystem.main" target="11" />
+      <module name="product.ordersystem.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
